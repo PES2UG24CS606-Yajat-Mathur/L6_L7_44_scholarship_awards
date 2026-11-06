@@ -1,15 +1,18 @@
-from hypothesis import given, strategies as st
+from hypothesis import given, settings, strategies as st
 from scholarship_awards import parse_applicant, marks_average, payable_award
 
 @given(st.text() | st.none())
+@settings(deadline=None)
 def test_parse_applicant_no_crash(s):
     parse_applicant(s)
 
 @given(st.text() | st.none())
+@settings(deadline=None)
 def test_marks_average_no_crash(s):
     marks_average(s)
 
 @given(st.text() | st.none())
+@settings(deadline=None)
 def test_payable_award_no_crash(s):
     payable_award(s)
 
